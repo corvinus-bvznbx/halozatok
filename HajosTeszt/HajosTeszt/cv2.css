@@ -1,7 +1,7 @@
 ﻿body {
 }
 * {
-    box-sizing: border box;
+    box-sizing: border-box;
 }
 
 div {
@@ -28,7 +28,7 @@ body {
 #header {
     background-color: silver;
     text-align: center;
-    font-stlye: bold;
+    
     color: brown;
 }
 
@@ -73,7 +73,7 @@ body {
     body {
         display: flex;
         flex-direction: column;
-        max-widht: 1500px;
+        
         margin: auto;
     }
 
