@@ -30,8 +30,26 @@ function kérdésMegjelenítés (k) {
     }
     document.getElementById("kép1").src = "https://szoft1.comeback.hu/hajo/" + kérdések[k].image;
 }
-function kattintas() {
-    jelenlegikerdes++;
-    kérdésMegjelenítés(jelenlegikerdes);
-    
+function kattintasv() {
+    if (jelenlegikerdes == 0) {
+        jelenlegikerdes = kérdések.length - 1;
+        kérdésMegjelenítés(jelenlegikerdes);
+    }
+    else {
+        jelenlegikerdes--;
+        kérdésMegjelenítés(jelenlegikerdes);;
+    }
+    //jelenlegikerdes++;
+    //kérdésMegjelenítés(jelenlegikerdes);
+}
+function kattintase() {
+    if (jelenlegikerdes == kérdések.length - 1) {
+        jelenlegikerdes = 0;
+        kérdésMegjelenítés(jelenlegikerdes);;
+
+    }
+    else {
+        jelenlegikerdes++;
+        kérdésMegjelenítés(jelenlegikerdes);
+    }
 }
