@@ -3,6 +3,7 @@ var kérdések;
 var jelenlegikerdes = 0;
 
 
+
 function letoltes() {
     fetch('/questions.json')
         .then(response => response.json())
@@ -112,4 +113,34 @@ document.getElementById("válasz3").onclick = () => {
     document.getElementById("válasz1").style.pointerEvents = 'none';
     document.getElementById("válasz2").style.pointerEvents = 'none';
     document.getElementById("válasz3").style.pointerEvents = 'none';
+}
+
+fetch('/questions/4')
+    .then(response => response.json())
+    .then(data => console.log(data)
+    );
+
+fetch('/questions/1')
+    .then(response => response.json())
+    .then(data => kerdesMegjelenites(data)
+    );
+function kerdesMegjelenites(kérdések) {
+    console.log(kérdések)
+    document.getElementById("kérdés_szöveg").innerText = kérdések.questionText
+    document.getElementById("válasz1").innerText = kérdések.answer1
+    document.getElementById("válasz2").innerText = kérdések.answer2
+    document.getElementById("válasz3").innerText = kérdések.answer3
+    document.getElementById("kép").src = "https://szoft1.comeback.hu/hajo/" + kérdések.image;
+}
+function kerdesBetoltes(id) {
+    fetch('/questions/${id}')
+        .then(response => {
+            if (!response.ok) {
+                console.error(`Hibás válasz: ${response.status}`)
+            }
+            else {
+                return response.json()
+            }
+        })
+        .then(data => kerdesMegjelenites(data));
 }
