@@ -13,6 +13,15 @@ namespace HajosTeszt.Controllers
     public class BoatController : ControllerBase
     {
         [HttpGet]
+        [Route("questions/all")]
+        public ActionResult M1()
+        {
+            HajostesztContext context = new HajostesztContext();
+            var kérdések = from x in context.Questions select x.QuestionText;
+                           
+           return new JsonResult(kérdések);
+        }
+        [HttpGet]
         [Route("questions/{sorszam}")]
         public ActionResult M2(int sorszam)
         {
@@ -24,5 +33,15 @@ namespace HajosTeszt.Controllers
 
             return new JsonResult(kérdések);
         }
+        [HttpGet]
+        [Route("questions/count")]
+        public int M4()
+        {
+            HajostesztContext context = new HajostesztContext();
+            int kérdésekSzáma = context.Questions.Count();
+
+            return kérdésekSzáma;
+        }
     }
+
 }
