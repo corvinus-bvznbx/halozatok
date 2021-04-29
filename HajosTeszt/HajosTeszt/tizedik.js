@@ -1,4 +1,4 @@
-﻿window.onload = init();
+﻿
 var kérdés;
 var hotList = [];
 var questionsInHotList = 3;
@@ -11,7 +11,22 @@ timeoutHandler = setTimeout(előre, 3000);
 
 let i = 1;
 
+window.onload = init();
 
+function kérdésMegjelenítés() {
+    let kérdés = hotList[displayedQuestions].question;
+    console.log(kérdés);
+    document.getElementById("kérdés_szöveg").innerText = kérdés.questionText
+    document.getElementById("válasz1").innerText = kérdés.answer1
+    document.getElementById("válasz2").innerText = kérdés.answer2
+    document.getElementById("válasz3").innerText = kérdés.answer3
+    if (kérdés.image !=) {
+        document.getElementById("kép1").src = "https://szoft1.comeback.hu/hajo/" + kérdés.image;
+        document.getElementById("kép1").classList.remove("visible")
+    }
+    else {
+        document.getElementById("kép1").classList.add("hidden")
+    }    
 
 function kerdesBetoltes(questionNumber, destination) {
     fetch(`/questions/${questionNumber}`)
@@ -55,20 +70,7 @@ function init() {
 
 
 
-function kérdésMegjelenítés() {
-    let kérdés = hotList[displayedQuestions].question;
-    console.log(kérdés);
-    document.getElementById("kérdés_szöveg").innerText = kérdés.questionText
-    document.getElementById("válasz1").innerText=kérdés.answer1
-    document.getElementById("válasz2").innerText = kérdés.answer2
-    document.getElementById("válasz3").innerText = kérdés.answer3
-    if (kérdés.image !=) {
-        document.getElementById("kép1").src = "https://szoft1.comeback.hu/hajo/" + kérdés.image;
-        document.getElementById("kép1").classList.remove("visible")
-    }
-    else {
-        document.getElementById("kép1").classList.add("hidden")
-    }            
+        
 
 function kattintasv() {
 

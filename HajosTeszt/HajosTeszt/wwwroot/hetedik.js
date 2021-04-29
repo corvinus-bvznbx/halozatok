@@ -6,7 +6,7 @@ var questionId = 4
 
 
 function letoltes() {
-    fetch(`/questions.json`)
+    fetch('/questions.json')
         .then(response => response.json())
         .then(data => letöltésBefejeződött(data)
        );
@@ -138,7 +138,7 @@ fetch('/questions/1')
     );
 function kerdesMegjelenites(kérdések) {
     console.log(kérdések)
-    document.getElementById("kérdés_szöveg").innerText = kérdés.questionText
+    document.getElementById("kérdés_szöveg").innerText = kérdések.questionText
     document.getElementById("válasz1").innerText = kérdések.answer1
     document.getElementById("válasz2").innerText = kérdések.answer2
     document.getElementById("válasz3").innerText = kérdések.answer3
