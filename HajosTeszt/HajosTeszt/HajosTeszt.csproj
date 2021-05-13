@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Controllers\JokeController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\jokes.html" />
     <None Include="wwwroot\tizedik.js" />
   </ItemGroup>
 
